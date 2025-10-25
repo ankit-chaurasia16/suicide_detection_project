@@ -215,5 +215,6 @@ def upload_dataset():
         return jsonify({'success': False, 'error': f'Upload failed: {str(e)}'})
 
 if __name__ == '__main__':
-    print("Starting server on http://127.0.0.1:5000")
-    app.run(debug=True, host='127.0.0.1', port=5000)
+ import os 
+port = int(os.environ.get('PORT', 10000)) 
+app.run(debug=False, host='0.0.0.0', port=port)
